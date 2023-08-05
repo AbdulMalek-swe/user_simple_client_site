@@ -1,40 +1,24 @@
 import React   from 'react';
 import { createBrowserRouter } from 'react-router-dom';
-import Login from '../pages/Login';
-import Menu from '../pages/Menu';
-import MyId from '../pages/MyId';
-import Signup from '../pages/Signup';
-import User from '../pages/User';
-import UserEdit from '../pages/UserEdit';
+import Register from '../pages/auth/Register';
+import PublicRoute from './PublicRoute';
+import Login from '../pages/auth/Login';
+import Note from '../pages/notes/Note';
+ 
 const router = createBrowserRouter([
-    {
-      path:"/",
-      element:<Login/>
-    },
-    {
-      path:"/create",
-      element:<Menu/>,
-      children:[
+       {
+       path:"/",
+       element:<PublicRoute><Login/></PublicRoute>
+        },
         {
           path:"/create",
-          element:<Signup/>
+          element: <PublicRoute> <Register/></PublicRoute>
         },
         {
-          path:"/create/user",
-          element:<User/>
+          path:"/note",
+          element:<Note/>
         },
-        {
-          path:"/create/profile",
-          element:<MyId/>
-        },
-        {
-          path:"/create/user/edit/:id",
-          element:<UserEdit/>
-        }
-      ]
-    },
-     
-     
+        
   ]);
 
   export default router;

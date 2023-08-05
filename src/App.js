@@ -1,17 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+ 
+import React  from 'react';
 import { RouterProvider } from 'react-router';
 import router from './Routes/Route';
-import { Toaster } from 'react-hot-toast';
+import { fetchNotes } from './utils/fetchNotes';
  
-function App() {
- 
+const App = () => {
+ fetchNotes()
+    
   return (
     <div>
-      <Toaster/>
-      <RouterProvider router={router} />
+         <RouterProvider router={router}>
+          
+         </RouterProvider>
     </div>
   );
-}
+};
 
 export default App;
